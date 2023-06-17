@@ -4,7 +4,7 @@ resource "aws_iam_policy" "policy" {
   path        = "/"
   description = "${var.component}-${var.env}-ssm-pm-policy"
 
-  policy = jsondecode(
+  policy = jsonencode(
     {
       "Version": "2012-10-17",
       "Statement": [
@@ -32,7 +32,7 @@ resource "aws_iam_policy_attachment" "test-attach" {
 resource "aws_iam_role" "role" {
 name = "${var.component}-${var.env}-ec2-role"
 
-assume_role_policy = jsondecode(
+assume_role_policy = jsonencode(
 {
   "Version": "2012-10-17",
   "Statement": [
