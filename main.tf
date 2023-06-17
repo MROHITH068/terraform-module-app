@@ -23,11 +23,6 @@ resource "aws_iam_policy" "policy" {
     })
 }
 
-resource "aws_iam_policy_attachment" "test-attach" {
-  roles      = aws_iam_role.role
-  policy_arn = aws_iam_policy.policy.arn
-}
-
 #Role
 resource "aws_iam_role" "role" {
 name = "${var.component}-${var.env}-ec2-role"
@@ -46,6 +41,11 @@ assume_role_policy = jsonencode(
     }
   ]
 })
+}
+
+resource "aws_iam_policy_attachment" "test-attach" {
+  roles      = aws_iam_role.role.name
+  policy_arn = aws_iam_policy.policy.arn
 }
 
 resource "aws_iam_instance_profile" "instance_profile" {
