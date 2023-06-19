@@ -95,7 +95,7 @@ resource "aws_route53_record" "dns" {
   name    = "${var.component}-dev"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.instance.public_ip]
+  records = [aws_instance.instance.private_ip]
 }
 
 #Null resource for ansible
