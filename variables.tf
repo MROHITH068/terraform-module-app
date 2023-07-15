@@ -1,9 +1,9 @@
 variable "env" {}
 variable "component" {}
 variable "tags" {}
-variable "subnet_id" {}
+variable "subnets" {}
 variable "vpc_id" {}
-variable "kms_key_arn" {}
+variable "kms_key_id" {}
 variable "allow_ssh_cidr" {}
 variable "app_port" {}
 variable "instance_type" {}
