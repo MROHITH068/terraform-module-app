@@ -34,15 +34,15 @@ resource "aws_security_group" "main" {
 resource "aws_launch_template" "main" {
   name = "${var.component}-${var.env}"
 
-  block_device_mappings {
-    device_name = "/dev/sdf"
-
-    ebs {
-      volume_size = 20
-      encrypted = true
-      kms_key_id = var.kms_key_arn
-    }
-  }
+#  block_device_mappings {
+#    device_name = "/dev/sdf"
+#
+#    ebs {
+#      volume_size = 20
+#      encrypted = true
+#      kms_key_id = var.kms_key_arn
+#    }
+#  }
 
   iam_instance_profile {
     name = aws_iam_instance_profile.instance_profile.name
