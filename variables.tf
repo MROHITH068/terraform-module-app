@@ -13,3 +13,5 @@ variable "desired_capacity" {}
 variable "max_size" {}
 variable "min_size" {}
 variable "lb_dns_name" {}
+variable "listener_arn" {}
+variable "lb_rule_priority" {}
