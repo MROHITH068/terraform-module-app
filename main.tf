@@ -58,10 +58,10 @@ resource "aws_launch_template" "main" {
       Name = merge({Name = "${var.component}-${var.env}",Monitor = "true"}, var.tags)
     }
   }
-  user_data = base64encode("${path.module}/userdata.sh",{
+  user_data = base64encode(templatefile("${path.module}/userdata.sh",{
     env = var.env
     component = var.component
-  } )
+  } ))
 }
 
 
