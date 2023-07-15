@@ -86,13 +86,13 @@ resource "aws_lb_target_group" "main" {
 
 
 ##DNS Record
-#resource "aws_route53_record" "dns" {
-#  zone_id = "Z01893031FJEHFT2WJCRK"
-#  name    = "${var.component}-dev"
-#  type    = "A"
-#  ttl     = 30
-#  records = [aws_instance.instance.private_ip]
-#}
-#
+resource "aws_route53_record" "dns" {
+  zone_id = "Z01893031FJEHFT2WJCRK"
+  name    = "${var.component}-dev"
+  type    = "CNAME"
+  ttl     = 30
+  records = [var.lb_dns_name]
+}
+
 
 
