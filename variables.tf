@@ -15,3 +15,4 @@ variable "min_size" {}
 variable "lb_dns_name" {}
 variable "listener_arn" {}
 variable "lb_rule_priority" {}
+variable "extra_param_access" {}
