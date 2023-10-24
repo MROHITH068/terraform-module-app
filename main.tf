@@ -108,7 +108,7 @@ resource "aws_lb_target_group" "main" {
 ##DNS Record
 resource "aws_route53_record" "dns" {
   zone_id = "Z01893031FJEHFT2WJCRK"
-  name    = "${var.component}-${var.env}"
+  name    = local.dns_name
   type    = "CNAME"
   ttl     = 30
   records = [var.lb_dns_name]
@@ -126,7 +126,7 @@ resource "aws_lb_listener_rule" "main" {
 
   condition {
     host_header {
-      values = ["${var.component}-${var.env}.rohdevops.online"]
+      values = ["${local.dns_name}.rohdevops.online"]
     }
   }
 }
